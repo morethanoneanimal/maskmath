@@ -206,61 +206,61 @@
 
   <div class="container">
 
-    <h2>From People to The Population</h2>
+    <h2>Od Jednostek do Populacji</h2>
 
     <p>
-      So far, we've only looked at disease transmission between two people.
-      How do we go from here to understanding disease transmission in the <i>entire population</i>?
+      Do tej pory, przyglądaliśmy się jedynie rozprzestrzenianiu się choroby pomiędzy dwojgiem ludzi.
+      Jak możemy przełożyć to na zrozumienie jak działa rozprzestrzenianie się wirusa <i>w całej populacji</i>?
     </p> 
 
-    <p>Well, in the extreme limits, this is straightforward.</p> 
+    <p>W przypadkach skrajnych jest to dość proste.</p> 
 
     <p>
-      For example, if <b>nobody</b> wore a mask, then whenever two people meet, the chance that <span class="red">neither wear a mask</span> is 100%.
+      Na przykład, jeśli założymy, że <b>nikt</b> nie nosi maski, wtedy zawsze gdy dwoje ludzi się spotyka, szansa, <span class="red">że żadne z nich nie ma maski,</span> wynosi 100%.
     </p>
 
     <network :maskusage="0"></network>
 
     <p>
-      So we'd only have to consider the <span class="red">first route</span> of disease transmission, and the population would see <span class="red">no drop</span> in disease transmission.
+      W takiej sytuacji bierzemy pod uwagę tylko <span class="red">pierwszą drogę</span> rozprzestrzeniania się choroby i w populacji nie zaobserwowalibyśmy <span class="red">żadnego spadku</span> w roznoszeniu się choroby.
     </p>
 
     <p>
-      At the other extreme, if <b>everyone</b> wore a mask, then whenever two people meet, the chance that they <span class="yellow">both wear masks</span> is 100%.
+      W przypadku drugiej skrajności, gdy założymy, że <b>wszyscy</b> noszą maski, w przypadku spotkania dwojga ludzi, szansa, że <span class="yellow">oboje mają założone maski,</span> wynosi 100%.
     </p>
 
     <network :maskusage="1"></network>
 
     <p>
-      In this case, we’d only have to consider the <span class="yellow">last route</span> of disease transmission.
-      Assuming masks are 50% effective in each direction, the population would see a <span class="yellow">75% drop</span> in disease transmission.
+      W tym przypadku bierzemy pod uwagę jedynie <span class="yellow">ostatnią drogę</span> rozprzestrzeniania się choroby.
+      Zakładając, że maski mają 50% skuteczność w każdym kierunku, w populacji zaobserwowalibyśmy<span class="yellow">75% spadek</span> w roznoszeniu choroby.
     </p>
 
     <p>
-      So when <i>everyone</i> wears a mask (or when <i>no one</i> wears one), it's straightforward to calculate the drop in disease transmission in the population, because there's only one route involved.
+      Tak więc, gdy <i>wszyscy</i> noszą maski (lub gdy <i>nikt</i> ich nie nosi), łatwo jest obliczyć spadek w transmisji choroby pośród populacji, ponieważ jest to przypadek skrajny i w obliczeniach uwzględniamy tylko tą jedną drogę roznoszenia choroby.
     </p>
 
     <p>
-      But in reality, some people wear masks and others don’t.
-      Which means the virus can spread through a mix of all four routes.
-      How likely each route is will depend on how many people wear masks.
+      W rzeczywistości jednak, niektórzy ludzie noszą maski a inni nie.
+      To oznacza, że wirus może roznosić się poprzez kombinację wszystkich czterech dróg rozprzestrzeniania.
+      Prawdopodobieństwo każdej z nich zależy od tego, jak wiele ludzi nosi maski.
     </p>
 
     <label class="row half bigsplash">
-      <div>Mask Usage: <span class="dotted">{{convertToPercent(pnetwork)}}</span>%</div>
+      <div>Użycie Masek: <span class="dotted">{{convertToPercent(pnetwork)}}</span>%</div>
       <slider v-model="pnetwork" :min="0" :max="1" :step="0.01"></slider>
     </label>
 
     <network :maskusage="pnetwork"></network>
 
     <p>
-      For example, <b>if 50% of people wear masks</b>, then whenever two people meet at random, the chance that <span class="yellow">both people wear masks</span> is 50% ⨉ 50%, i.e. 25%.
-      Similarly, you can work out the chance of the other three disease transmission routes.
+      Na przykład, <b>jeśli 50% ludzi nosi maski</b>, to zawsze gdy spotyka się dwoje przypadkowych ludzi, szansa na to, że <span class="yellow">oboje mają maski</span> wynosi 50% ⨉ 50%, czyli 25%.
+      W podobny sposób możemy obliczyć szanse na wystąpienie pozostałych trzech dróg rozprzestrzeniania się choroby.
     </p>
 
     <p>
-      When exactly half the population wears masks, it turns out that each route is equally likely.
-      (Can you convince yourself why this has to be true?)
+      Gdy dokładnie połowa populacji nosi maski, okazuje się, że każda z dróg rozprzestrzeniania się jest równie prawdopodobna.
+      (Czy możecie pokazać dlaczego tak jest?)
     </p>
 
   </div>
@@ -271,7 +271,7 @@
       <div class="row big-small-small">
 
         <div class="column onehundredpx">
-          <div class="center">Disease Transmission Route</div>
+          <div class="center">Droga rozprzestrzeniania</div>
           <anim :mask1="false" :mask2="false"></anim>
           <anim :mask1="true" :mask2="false" :eout="0.5"></anim>
           <anim :mask1="false" :mask2="true" :ein="0.5"></anim>
@@ -279,7 +279,7 @@
         </div>
 
         <div class="column onehundredpx">
-          <div class="center">Drop in Disease Transmission</div>
+          <div class="center">Spadek w rozprzestrzenianiu</div>
           <div class="center"><span class="red">0%</span></div>
           <div class="center"><span class="orange">50%</span></div>
           <div class="center"><span class="orange">50%</span></div>
@@ -287,7 +287,7 @@
         </div>
 
         <div class="column onehundredpx">
-          <div class="center">Chance of This Route</div>
+          <div class="center">Prawdopodobieństwo każdej z dróg rozprzestrzeniania</div>
           <div class="center">25%</div>
           <div class="center">25%</div>
           <div class="center">25%</div>
@@ -297,7 +297,7 @@
       </div>
 
       <div class="caption">
-        The four ways that COVID-19 can spread from person to person, assuming that 50% of people wear a 50% effective mask.
+        Cztery drogi, którymi COVID-19 może przenieść się z jednej osoby na drugą, zakładając, że 50% osób nosi maski o 50% skuteczności.
       </div>
 
     </div>
@@ -306,18 +306,18 @@
   <div class="container">
 
     <p>
-      We can now calculate the <b>average drop in disease transmission in the population</b>.
-      Since we’ve set things up so that each route is equally likely, this is just the average of <span class="red">0%</span>, <span class="orange">50%</span>, <span class="orange">50%</span> and <span class="yellow">75%</span>, which is 43.75%.
+      Teraz możemy obliczyć <b>średni spadek w rozprzestrzenianiu choroby w całej populacji</b>.
+      Ponieważ założylismy, że każda z dróg jest równie prawdopodobna, średni spadek to średnia z: <span class="red">0%</span>, <span class="orange">50%</span>, <span class="orange">50%</span> i <span class="yellow">75%</span>, i wynosi 43.75%.
     </p>
 
     <p>
-      People who <i>don’t</i> wear masks get infected via the first two routes, which are equally likely when half the population wears a mask.
-      So the drop in disease transmission to non-mask wearers is the average of <span class="red">0%</span> and <span class="orange">50%</span>, which is 25%.
+      Osoby, które <i>nie noszą</i> masek, zakażają się poprzez dwie pierwsze drogi, które, gdy połowa populacji nosi maski, są równie prawdopodobne.
+      Tak więc spadek w rozprzestrzenianiu pośród nienoszących masek równa się średniej z <span class="red">0%</span> i <span class="orange">50%</span>, czyli 25%.
     </p>
 
     <p>
-      Meanwhile, people who <i>do</i> wear masks get infected via the last two routes.
-      So the drop in disease transmission to mask-wearers is the average of <span class="orange">50%</span> and <span class="yellow">75%</span>, which is 62.5%.
+      Tymczasem, osoby, które <i>noszą</i> maski, zakażają się poprzez dwie ostatnie drogi.
+      Wobec tego spadek w rozprzestrzenianiu się pośród osób noszących maski jest średnią z <span class="orange">50%</span> i <span class="yellow">75%</span>, i wynosi 62.5%.
     </p>
 
   </div>
@@ -325,12 +325,12 @@
   <div class="graphic">
     <div class="graphic-container">
       <div class="column">
-        <div class="splash">Average Drop in Disease Transmission = <span style="font-size: 2rem;"><b>43.75</b></span>%</div>
-        <div class="splash">Drop in Disease Transmission to <b>Non-Mask Wearers</b> = 25%</div>
-        <div class="splash">Drop in Disease Transmission to <b>Mask-Wearers</b> = 62.5%</div>
+        <div class="splash">Uśredniony spadek w rozprzestrzenianiu = <span style="font-size: 2rem;"><b>43.75</b></span>%</div>
+        <div class="splash">Spadek w rozprzestrzenianiu pośród <b>nienoszących masek</b> = 25%</div>
+        <div class="splash">Spadek w rozprzestrzenianiu pośród <b>noszących maski</b> = 62.5%</div>
       </div>
       <div class="caption">
-        (Assuming 50% of people wear a 50% effective mask.)
+        (Zakładając, że 50% ludzi nosi maski o 50% skuteczności.)
       </div>
     </div>
   </div>
@@ -338,13 +338,13 @@
   <div class="container">
 
     <p>
-      So even non-mask wearers get a modest benefit, because the air they inhale is often mediated by <i>other people’s</i> masks.
-      But mask-wearers benefit much more, thanks to the added protection their masks provide.
+      W ostatecznym rozrachunku, nawet osoby nienoszące masek, zyskują pewną niewielką ochronę, ponieważ powietrze, którym oddychają, jest częściowo filtrowane przez maski <i>innych osób</i>.
+      Dla porównania, osoby noszące maski zyskują dużo większą ochronę, dzięki dodadkowemu zabezpieczeniu, które zapewniają im ich własne maski.
     </p>
 
-    <p>And since the population consists of both mask-wearers and non-mask wearers, the average benefit lies in between the benefit to these two groups.</p>
+    <p>A ponieważ populacja składa sie zarówno z osób noszących jak i nienoszących masek, średnia korzyść z ochrony, którą zapewniają maski leży pomiędzy ilością ochrony w tych dwóch grupach.</p>
 
-    <p>So in this simplified example (where 50% of people wear 50% effective masks) we’ve worked out how to go from the <b>benefit that masks offer an <i>individual</i></b> to the <b>average benefit that masks offer a <i>population</i>.</b></p>
+    <p>Tak więc na tym prostym przykładzie (gdzie 50% ludzi nosi maski o 50% skuteczności) udało nam się ustalić jak przeliczyć <b>korzyścć, którą noszenie masek oferuje <i>jednostce</i></b>, na <b>średnią korzyść, którą noszenie masek oferuje całej <i>populacji</i>.</b></p>
 
     <h2>Maskologia</h2>
 
